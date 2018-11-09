@@ -1,0 +1,13 @@
+<template name="custom_no_invite">
+  <div class="grid-small grid-block dialog">
+    <h3>Stoked about your interest to join creatorstory</h3>
+    {{afterSignupText}}
+    <p>{{_ "the_site_is_currently_invite_only_but_we_will_let_you_know_as_soon_as_a_spot_opens_up"}}</p>
+  </div>
+
+  {{#unless isLoggedIn}}
+    <div class="creatorstory-video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-eGgumi3e_c?list=PL00714IwAXtg7yRt5M90UpawKwaUDAR-w&showinfo=0&modestbranding=1&rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  {{/unless}}
+</template>

@@ -1,0 +1,15 @@
+<template name="discussions_menu">
+  {{#if hasCategories}}
+    {{> menuComponent
+      menuName="Discussions"
+      menuItems=menuItems
+      menuClass="header-submodule"
+      menuMode=menuMode
+      menuLabel=menuLabel
+    }}
+  {{/if}}
+</template>
+
+<template name="discussions_posts">
+  <a href="/category/discussions">Discussions</a>
+</template>

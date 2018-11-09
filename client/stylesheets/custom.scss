@@ -1,0 +1,73 @@
+// white background body color
+body {
+    background-color: #F0F0F0;
+}
+
+// hide the downvote comment icon
+a.downvote{
+   display: none;
+}
+
+//XXX: Ugly Hack to prevent video from playing on main page
+//     This could be done with some sort of stop event propagation
+$small-break: 600px;
+@mixin small(){
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+}
+
+.post-thumbnail-play-video-icon:after{
+  content: '‣';
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin: -18px 0 0 -18px;
+  line-height: 38px;
+  text-align: center;
+  color: white;
+  display: block;
+  z-index: 10;
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.4);
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 100%;
+  @include small{
+    display: none;
+  }
+}
+
+// hide the "Register" Link from the top of the opening page
+.account-link.sign-in{
+  display: none;
+}
+
+// top menu labels
+.menu-top-level > a {
+  font-weight: normal;
+  display: inline; // mobile friendly
+  @include small{ // disable clicks on menu label
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+//responsive creatorstory video
+.creatorstory-video-container {
+    position: relative;
+    padding-bottom: 52%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.creatorstory-video-container iframe,
+.creatorstory-video-container object,
+.creatorstory-video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

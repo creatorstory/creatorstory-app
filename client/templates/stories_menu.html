@@ -1,0 +1,15 @@
+<template name="stories_menu">
+  {{#if hasCategories}}
+    {{> menuComponent
+      menuName="Stories"
+      menuItems=menuItems
+      menuClass="header-submodule"
+      menuMode=menuMode
+      menuLabel=menuLabel
+    }}
+  {{/if}}
+</template>
+
+<template name="stories_posts">
+  <a href="/category/stories">Stories</a>
+</template>

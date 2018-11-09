@@ -1,0 +1,11 @@
+<template name="custom_pages_menu">
+  {{#if canView}}
+  	{{#if hasPages}}
+    	{{> menuComponent
+        menuName="•••"
+        menuItems=menuItems
+        menuClass="header-submodule menu-pages-icon"
+        menuMode=menuMode}}
+  	{{/if}}
+  {{/if}}
+</template>

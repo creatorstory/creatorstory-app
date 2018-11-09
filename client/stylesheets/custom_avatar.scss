@@ -1,0 +1,119 @@
+//-----------from _grid.scss ------------//
+
+$grid-unit:70px;
+$grid-margin:10px;
+$grid-padding:15px;
+$break-small:500px;
+
+$small-break: 600px;
+$medium-break: 900px;
+
+@mixin small(){
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+}
+@mixin small-medium(){
+  @media screen and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium(){
+  @media screen and (min-width: $small-break) and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium-large(){
+  @media screen and (min-width: $small-break) {
+    @content;
+  }
+}
+@mixin large(){
+  @media screen and (min-width: $medium-break) {
+    @content;
+  }
+}
+
+.content-wrapper{
+  @include small{
+    overflow-x: hidden;
+  }
+}
+.grid{
+  margin-left: auto;
+  margin-right: auto;
+  @include small {
+    width: 280px;
+  }
+  @include medium {
+    width: 561px;
+  }
+  @include large {
+    width:100%;
+  }
+}
+.grid-small, .at-form{
+  width: 100%;
+  @include medium-large{
+   max-width:500px;
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+.mobile-only{
+  @include small{
+    display: block !important;
+  }
+}
+.tablet-only{
+  @include medium{
+    display: block !important;
+  }
+}
+.largescreen-only{
+  @include large{
+    display: block !important;
+  }
+}
+
+//----------------here is the actual _avatars.scss code... ---------//
+.post-author-avatar {
+  display: none;
+  @include large {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 10px;
+  }
+  @include medium {
+    display: block;
+    position: absolute;
+    left: -40px;
+    top: 5px;
+  }
+  @include small {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: -15px;
+  }
+  .avatar-initials{
+    line-height: 46px;
+    background-color: deepskyblue;
+    color: transparent;
+    border: none;
+    font-weight: bold;
+    font-family: "Nunito";
+    text-shadow: none;
+  }
+}
+.avatar-medium {
+  .avatar-initials{
+    font-size: 0px;
+  }
+}
+.avatar-large {
+  .avatar-initials{
+    font-size: 0px;
+  }
+}

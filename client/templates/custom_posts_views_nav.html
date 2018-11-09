@@ -1,0 +1,11 @@
+<template name="custom_posts_views_nav">
+  {{#if isLoggedIn}}
+    {{#if isUserInvited}}
+      <div class="posts-views-nav grid-module">
+          {{#if showNav}}
+              {{> menuComponent menuName="view" menuItems=menuItems mode="list"}}
+          {{/if}}
+      </div>
+    {{/if}}
+  {{/if}}
+</template>

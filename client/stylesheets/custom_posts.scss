@@ -1,0 +1,467 @@
+//-----------from _color.scss ------------//
+
+$main: #163f5e;
+$mainDark: #3498db;
+$blue:#7ac0e4;
+
+//-----------from _grid.scss ------------//
+
+$grid-unit:70px;
+$grid-margin:10px;
+$grid-padding:15px;
+$break-small:500px;
+
+$small-break: 600px;
+$medium-break: 900px;
+
+@mixin small(){
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+}
+@mixin small-medium(){
+  @media screen and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium(){
+  @media screen and (min-width: $small-break) and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium-large(){
+  @media screen and (min-width: $small-break) {
+    @content;
+  }
+}
+@mixin large(){
+  @media screen and (min-width: $medium-break) {
+    @content;
+  }
+}
+
+.content-wrapper{
+  @include small{
+    overflow-x: hidden;
+  }
+}
+.grid{
+	margin-left: auto;
+	margin-right: auto;
+  @include small {
+    width: 280px;
+  }
+  @include medium {
+    width: 561px;
+  }
+  @include large {
+    width:100%;
+  }
+}
+.grid-small, .at-form{
+  width: 100%;
+  @include medium-large{
+	 max-width:500px;
+  }
+	margin-left: auto;
+  margin-right: auto;
+}
+.mobile-only{
+  @include small{
+    display: block !important;
+  }
+}
+.tablet-only{
+  @include medium{
+    display: block !important;
+  }
+}
+.largescreen-only{
+  @include large{
+    display: block !important;
+  }
+}
+
+// ------------------------------------ post ------------------------------------ //
+.post {
+	padding: 40px 0px 30px 10px;
+	@include small {
+		padding: 11px 10px 11px 0px;
+	}
+}
+.post-list-title, .page-title{
+    display: none;
+}
+
+// ------------------------------------ posts views nav ------------------------------------ //
+.posts-views-nav{
+	background: none;
+	padding: 0;
+	margin-bottom: 20px;
+	.menu-top-level{
+		font-size: 11px;
+		margin-right: 20px;
+	}
+	.menu-item{
+		text-transform: uppercase;
+		a {
+			font-size: 11px;
+			letter-spacing: 1px;
+			color: $main;
+		}
+	}
+}
+
+.menu-dropdown.menu-has-items .menu-top-level:after {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    margin-left: 4px;
+    content: url('/images/drop-down-arrow.png');
+    font-size: 8px;
+}
+
+// ------------------------------ posts-grid layout ------------------------------ //
+
+.posts-grid {
+	.post {
+		@include small {
+			max-width: 280px;
+		}
+		@include medium {
+			max-width: 561px;
+		}
+		@include medium-large {
+			width: calc((100%));
+		}
+		border-radius: 4px;
+		margin: 0 0 25px 0;
+		padding-bottom: 0px;
+		&:after {
+			border-bottom: none;
+		}
+	}
+	.post-content {
+		position: relative;
+		text-align: left;
+	}
+	.post-info {
+		padding: 10px 10px;
+		@include medium-large {
+			padding: 10px 25px;
+		}
+		position: absolute;
+		z-index: 1;
+		background: transparent;
+	}
+	.post-thumbnail {
+			border: 1px solid rgba(171, 171, 171, 0.4);
+			border-radius: 4px;
+	    a {
+	    	border-radius: 4px;
+	    }
+	}
+	svg {
+		display: none;
+		border-radius: 4px 4px 0px 0px;
+		position: absolute;
+		width: 278px;
+		height: 75px;
+		left: 1px;
+		top: 1px;
+		@include medium {
+			width: 559px;
+			height: 136px;
+		}
+		@include large {
+			width: 698px;
+			height: 170px;
+		}
+		> #panel {
+			width: 280px;
+			height: 140px;
+			@include medium {
+				width: 561px;
+				height: 280px;
+			}
+			@include large {
+				width: 700px;
+				height: 350px;
+			}
+		}
+	}
+	.post-vote {
+		z-index: 2;
+		text-align: center;
+		font-size: 11px;
+		color: #3E3E3E;
+		left: 253px;
+		top: 1px;
+		bottom: 99px;
+    	background: #F0EDDE;
+    	padding: 0 4px;
+        @include medium { //XXX: TODO: blue background not working on this resolution....
+			left: 533px;
+			top: 14px;
+			bottom: 296px;		
+			background: #F0EDDE;
+		}
+		@include large { ////XXX: TODO: blue background not tested on this resolution...
+			left: 663px;
+			top: 14px;
+			bottom: 296px;					
+			background: #F0EDDE;
+		}
+		@include medium-large {
+			top: 14px;
+			bottom: 296px;			
+			background: #F0EDDE;
+		}
+    .upvote-link {
+        //transform: scale(1.9);
+        margin-bottom: 13px;
+        .icon-circle {
+        	padding: 3px;
+        }
+        .icon-upvote{
+        	border: none;
+        	color: #3E3E3E;
+        	background-color: transparent;
+        	&:hover {
+	    		color: #F00F24;
+			}
+        }
+        &.voted {
+        	i.icon-voted {
+        		border: none;
+        		color: #F00F24;
+        		text-shadow: 0px 0px 3px #FFF4C1;
+        		background-color: transparent;
+        	}
+        }
+    }
+    .points {
+    	display: flex;
+    	flex-direction: column;
+    	font-size: 13px;
+    }
+	}
+}
+
+// -------------------------------- post content --------------------------------- //
+.post-heading {
+	margin-bottom: 0px;
+	line-height: 1.1;
+	@include medium-large {
+		margin-bottom: 3px;
+		line-height: 1.2;
+	}
+	@include medium {
+		margin-top: 40px;
+	}
+	@include large {
+		margin-top: 50px;
+	}
+	.post-title {
+		color: white;
+		font-weight: 400;
+		font-size: 15px;
+		text-shadow: 1px 1px 1px rgba(21, 21, 21, 0.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+		@include medium {
+			font-size: 27px;
+		}
+		@include large {
+			font-size: 35px;
+		}
+		@include medium-large {
+			font-weight: 700;
+			line-height: 1;
+		}
+		&:visited {
+			color: white;
+		}
+	}
+}
+.post-meta {
+	margin-bottom: 20px;
+	color: white;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.64);
+	@include small {
+	    font-size: 12px !important;
+	    line-height: 1;
+	}
+	a {
+		text-transform: capitalize;
+		&:link,
+		&:visited,
+		&:active {
+			font-weight: normal;
+			color: white;
+		}
+		&:hover {
+			color: white;
+			text-decoration: underline;
+		}
+		&.post-author:after {
+		    content: " |";
+		}
+	}
+	.post-commenters {
+		display: none;
+	}
+	.palomar-admin {
+		@include small {
+			    padding: 3px 10px 2px 10px;
+			    background-color: darkblue;
+			    position: absolute;
+			    display: block;
+			    left: 1px;
+			    top: 76px;
+		}
+	}
+}
+.post-body, .page-body {
+    font-size: 13px;
+    color: darkslategrey;
+    @include large {
+        font-size: 15px;
+    }
+    margin-top: -20px;
+    padding: 20px;
+    .list & {
+    	display: block;
+    	background: transparent;
+    }
+    p {
+        line-height: 1.6;
+    }
+}
+
+// -------------------------------- post tags --------------------------------- //
+.post-category {
+	display: block;
+	font-size: 9px;
+	font-weight: normal !important;
+	color: #3E3E3E !important;
+	background: #F0EDDE;
+	text-transform: uppercase;
+	padding: 5px 10px 5px 10px;
+	position: absolute;
+	left: 17px;
+	top: 1px;
+	&:hover { //not working
+	    color: #F00F24;
+	}
+	@include medium {
+	    font-size: 11px;
+	    padding: 7px 18px 7px 18px;
+	    left: 1px;
+	    top: 15px;
+	}
+	@include large {
+		font-size: 11px;
+		padding: 7px 18px 7px 18px;
+	    left: -20px;
+	    top: 20px;
+	}
+}
+
+// -------------------------------- post thumbnail --------------------------------- //
+.post-thumbnail-empty {
+  background-size: cover;
+  background-repeat: no-repeat;
+  clear: both;
+  width: 100%;
+  margin: 0;
+  padding: 60% 0 0;
+  @include medium {
+    padding: 30% 0 0;
+  }
+	@include large {
+    padding: 30% 0 0;
+	}
+	@include medium-large {
+    padding: 30% 0 0;
+	}
+  background-image: url("/images/small-empty-thumbnail.gif");
+}
+
+.post-thumbnail-has-video:after {
+  content: '‣';
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin: -18px 0 0 -18px;
+  line-height: 38px;
+  text-align: center;
+  color: white;
+  display: block;
+  z-index: 20;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 100%;
+}
+
+.post-thumbnail-play-video-icon:after {
+  content: '‣';
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 36px;
+  width: 36px;
+  margin: -18px 0 0 -18px;
+  line-height: 38px;
+  text-align: center;
+  color: white;
+  display: block;
+  z-index: 20;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 100%;
+}
+
+// -------------------------------- other --------------------------------- //
+
+.more-button {
+	margin-bottom: 40px;
+	background: #F9F9F9;
+	font-size: 20px;
+	height: 50px;
+	line-height: 46px;
+	&:hover {
+		background: #F9F9F9;
+	}
+	&:after {
+		font-size: 16px;
+		content: " »";
+	}
+}
+.post-thumbnail-container, .post-thumbnail-preview  {
+	width: 250px !important;
+	height: 125px !important;
+	@include medium {
+		width: 340px !important;
+		height: 170px !important;
+	}
+	@include large {
+		width: 470px !important;
+		height: 235px !important;
+	}
+}
+
+#submit {
+  background: #FC030A;
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 0px 15px 0px 0px;
+}

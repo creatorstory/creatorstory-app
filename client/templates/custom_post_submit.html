@@ -1,0 +1,29 @@
+<template name="custom_post_submit">
+  {{#basicTabs tabs=tabs}}
+    {{#tabContent slug="story"}}
+    {{/tabContent}}
+
+    {{#tabContent slug="discussion"}}
+    {{/tabContent}}
+
+    {{#if isActiveTab 'story'}}
+      {{> quickForm
+        collection="Posts"
+        id="submitPostForm"
+        template="bootstrap3-horizontal"
+        input-col-class="controls"
+        type="method" meteormethod="submitPost"
+        fields=postFields params=params}}
+    {{else}}
+      {{> quickForm
+        collection="Posts"
+        id="submitPostForm"
+        template="bootstrap3-horizontal"
+        input-col-class="controls"
+        omitFields="thumbnailUrl"
+        type="method"
+        meteormethod="submitPost"
+        fields=postFields params=params}}
+    {{/if}}
+  {{/basicTabs}}
+</template>

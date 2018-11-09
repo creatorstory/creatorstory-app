@@ -1,0 +1,24 @@
+<!-- custom post_page_palomar  -->
+<template name="custom_post_page">
+  {{#with post}}
+    {{#if isPending}}
+      <div class="grid">
+        <div class="error pending-message module">
+          {{_ "thanks_your_post_is_awaiting_approval"}}
+        </div>
+      </div>
+    {{/if}}
+    <div class="single-post grid">
+      <div class="posts posts-grid">
+        {{> post_item}}
+      </div>
+      {{#if body}}
+        {{#unless isStory}}
+          {{> post_body}}
+        {{/unless}}
+      {{/if}}
+      {{> comment_submit}}
+      {{> comment_list}}
+    </div>
+  {{/with}}
+</template>
