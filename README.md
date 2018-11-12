@@ -1,7 +1,7 @@
 # This project is unmaintained
 
 
-This is a heavily customized Telescope app (Meteor.Js) that was used to help members of the creatorstory community to curate videos posted by other members of the community.
+This is a heavily customized Telescope app (Meteor.Js) that was used by members of the creatorstory community to curate videos posted by other members of the community.
 
 ----------------------------------------------------------------------------------------------------------
 
