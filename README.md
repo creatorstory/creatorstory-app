@@ -1,2 +1,2 @@
-This is an unmaintained project
+This project is unmaintained
 
