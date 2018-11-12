@@ -1,14 +1,14 @@
 # This project is unmaintained
 
 
-This is a heavily customized Telescope (Meteor.Js) app that was used by members of the creatorstory community to curate videos posted by other members of the community and to discuss in a forum-like space.
+This is a heavily customized Telescope (MeteorJS) app that was used by members of the creatorstory community to curate videos posted by other members of the community and to discuss in a forum-like space.
 
 Post on it: [Open-sourcing creatorstory](https://www.eskinasy.com/creatorstory/open-sourcing-creatorstory/)
 
 Stack is:
 
 * Telescope
-* Meteor.js
+* MeteorJS
 * MongoDB
 * Compose.io
 * Cloudinary
